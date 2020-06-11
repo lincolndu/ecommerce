@@ -41,11 +41,11 @@ include('database.php');
 	    foreach($items as $item) {
 	      if(isset($children[$item->id])) {
 	      	$item->count= array_sum(array_column($children[$item->id],'count'));
-	        $item->children = $children[$item->id];
+	        $item->children += $children[$item->id];
 	      }
 	    }
 	    foreach ($children[0] as $value) {
-	    	$value->count= array_sum(array_column($value->children,'count'));
+	    	$value->count += array_sum(array_column($value->children,'count'));
 	    }
 	    return $children[0];
 	}
