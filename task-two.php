@@ -45,7 +45,7 @@ include('database.php');
 	      }
 	    }
 	    foreach ($children[0] as $value) {
-	    	$value->count += array_sum(array_column($value->children,'count'));
+	    	$value->count = array_sum(array_column($value->children,'count'));
 	    }
 	    return $children[0];
 	}
